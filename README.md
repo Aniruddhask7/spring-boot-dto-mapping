@@ -95,28 +95,7 @@ This project uses Oracle Database with Spring Data JPA and Hibernate for persist
 Configure your Oracle database connection in `src/main/resources/application.properties` before running the application.
 
 Do not commit database passwords or other sensitive configuration to GitHub.
-
-## How to Run
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/spring-boot-dto-crud.git
-   ```
-
-2. Open the project in IntelliJ IDEA.
-
-3. Configure your Oracle database connection in `application.properties`.
-
-4. Build the project:
-
-   ```bash
-   mvn clean package
-   ```
-
-5. Run `SpringDtoExampleApplication.java`.
-
-6. Test the API using Postman.
+ 
 
 ## Learning Objective
 
