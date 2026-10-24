@@ -1,9 +1,6 @@
 package in.spring.controller;
 
-import in.spring.dto.CreatestudentRequestDto;
-import in.spring.dto.CreatestudentResponseDto;
-import in.spring.dto.UpdatestudentRequestDto;
-import in.spring.dto.UpdatestudentResponseDto;
+import in.spring.dto.*;
 import in.spring.entity.Student;
 import in.spring.service.studentService;
 import jakarta.validation.Valid;
@@ -11,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -50,6 +48,11 @@ public class studentController {
     }
 
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<GetAllstudentresponseDto>> getAllStudent( ){
+        List<GetAllstudentresponseDto> studRespo = studServ.getAllStudent();
+        return ResponseEntity.ok(studRespo);
+    }
 
 
 
@@ -64,4 +67,7 @@ public class studentController {
         }
         return ResponseEntity.ok(studRespo);
     }
+
+
+
 }

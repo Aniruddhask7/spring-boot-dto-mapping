@@ -1,15 +1,13 @@
 package in.spring.service;
 
 
-import in.spring.dto.CreatestudentRequestDto;
-import in.spring.dto.CreatestudentResponseDto;
-import in.spring.dto.UpdatestudentRequestDto;
-import in.spring.dto.UpdatestudentResponseDto;
+import in.spring.dto.*;
 import in.spring.entity.Student;
 import in.spring.repositery.studentRepositery;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -40,13 +38,34 @@ public class studentService {
 
     }
 
-
+//get
     public Optional<Student> getStudent(Long id){
         Optional<Student> studRespo = studRepos.findById(id);
 
         return  studRespo;
     }
 
+
+    // getAll
+    public List<GetAllstudentresponseDto> getAllStudent() {
+        List<Student> studRespo = studRepos.findAll();
+
+        return studRespo.stream().map(this::mapToGet).toList();
+    }
+
+
+    private GetAllstudentresponseDto mapToGet(Student student) {
+
+        GetAllstudentresponseDto responseDTO =
+                new GetAllstudentresponseDto();
+
+        responseDTO.setId(student.getId());
+        responseDTO.setName(student.getName());
+        responseDTO.setAge(student.getAge());
+        responseDTO.setSubject(student.getSubject());
+
+        return responseDTO;
+    }
 
 
 
